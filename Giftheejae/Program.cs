@@ -1,56 +1,39 @@
 ﻿
+using Giftheejae;
+
 namespace my_program
 {
-    class GiftBox
+    public enum ItemGrade
     {
-        public string Letter;
-        public int Money;
+        Unique = 10000,
+        rare = 11000,
+        normal = 12000
+       
+        
     }
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            GiftBox addressA = GiftBoxMaker("A친구야 잘 지내지?", 110000);
-            GiftBox addressB = GiftBoxMaker("B친구야 잘 지내지?", 120000);
-            GiftBox addressC = GiftBoxMaker("C친구야 잘 지내지?", 130000);
+            Console.WriteLine("시작 부분");
 
-            GiftBox[] giftBoxes = new GiftBox[3];
-            GiftBox giftBox = giftBoxes[0];
-            giftBoxes[0] = addressA;
-            giftBoxes[1] = addressB;
-            giftBoxes[2] = addressC;
-            Console.WriteLine("giftBox Array Count : " + giftBoxes.Length);
+            int aMoney = 10000;
+            int bMoney = aMoney;
+            aMoney = 20000;
+            Console.WriteLine("aMoney : " + aMoney);
+            Console.WriteLine("bMoney : " + bMoney);
 
-            //List
-            List<GiftBox> giftBoxList = new List<GiftBox>();
-            giftBoxList.Add(addressA);  //0
-            giftBoxList.Add(addressB);  //1
-            giftBoxList.Add(addressC);  //2
-
-            Console.WriteLine(giftBoxList[2].Letter);
-            Console.WriteLine("giftBox List Count : " + giftBoxList.Count);
-
-            for (int i = 0; i < giftBoxList.Count; i++)
+            GiftBox aGiftBox = new GiftBox()
             {
-                giftBoxes[i].Letter = (i + 1) + "번째 편지";
-                Console.WriteLine(giftBoxList[i].Letter);
-            }
-
-            foreach (GiftBox gift in giftBoxes)
-            {
-                Console.WriteLine(gift.Letter);
-            }
-        }
-
-        private static GiftBox GiftBoxMaker(string Letter, int Money)
-        {
-            GiftBox addressA = new GiftBox()
-            {
-                Letter = Letter,
-                Money = Money
+                Letter = "안녕",
+                Money = 10000
             };
-            return addressA;
+
+            GiftBox bGiftBox = aGiftBox;
+            aGiftBox.Money = 20000;
+            Console.WriteLine("aGiftBox : " + aGiftBox.Money);
+            Console.WriteLine("bGiftBox : " + bGiftBox.Money);
         }
     }
 }
