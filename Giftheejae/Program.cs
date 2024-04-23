@@ -18,22 +18,28 @@ namespace my_program
         {
             Console.WriteLine("시작 부분");
 
-            int aMoney = 10000;
-            int bMoney = aMoney;
-            aMoney = 20000;
-            Console.WriteLine("aMoney : " + aMoney);
-            Console.WriteLine("bMoney : " + bMoney);
+            int money = 10000;
+            Console.WriteLine(money);
+            Setmoney(money);
+            Console.WriteLine(money);
 
-            GiftBox aGiftBox = new GiftBox()
+            GiftBox giftBox = new GiftBox()
             {
-                Letter = "안녕",
                 Money = 10000
             };
+            Console.WriteLine(giftBox.Money);
+            SetGiftBox(giftBox);
+            Console.WriteLine(giftBox.Money);
+        }
 
-            GiftBox bGiftBox = aGiftBox;
-            aGiftBox.Money = 20000;
-            Console.WriteLine("aGiftBox : " + aGiftBox.Money);
-            Console.WriteLine("bGiftBox : " + bGiftBox.Money);
+        private static void SetGiftBox(GiftBox giftBox)
+        {
+            giftBox.Money = 50000;
+        }
+
+        private static void Setmoney(int needMoney)
+        {
+            needMoney = 30000;
         }
     }
 }
